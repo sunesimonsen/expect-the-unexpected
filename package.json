@@ -8,7 +8,7 @@
   "scripts": {
     "start": "npm run build && serve build",
     "build": "unexpected-presentation presentation.md",
-    "publish": "npm run build && gh-pages -d build"
+    "publish": "npm run build && gh-pages -t -d build"
   },
   "devDependencies": {
     "gh-pages": "0.12.0",
