@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run build && serve build",
-    "build": "unexpected-presentation presentation.md",
+    "build": "unexpected-presentation --require ./setup.js presentation.md",
     "publish": "npm run build && gh-pages -t -d build"
   },
   "devDependencies": {

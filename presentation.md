@@ -246,7 +246,7 @@ Note: Not everyone agrees
 Match your object hierarchy against a specification:
 
 ```js
-var sune = { name: 'Sune', gender: 'mail', age: 35, children: 2 };
+var sune = { name: 'Sune', gender: 'mail', age: 35, kids: 2 };
 
 expect(sune, 'to satisfy', {
   name: /.+/,
@@ -264,7 +264,7 @@ Note: this of cause nests arbitrarily.
 ---
 
 ```output
-expected { name: 'Sune', gender: 'mail', age: 35, children: 2 } to satisfy
+expected { name: 'Sune', gender: 'mail', age: 35, kids: 2 } to satisfy
 {
   name: /.+/,
   age: expect.it('to be positive'),
@@ -275,7 +275,7 @@ expected { name: 'Sune', gender: 'mail', age: 35, children: 2 } to satisfy
   name: 'Sune',
   gender: 'mail', // should match /male|female/
   age: 35,
-  children: 2
+  kids: 2
 }
 ```
 
@@ -540,20 +540,18 @@ srcAccount.transferTo(250, 'dkk', destAccount);
 expect.use(require('unexpected-sinon'));
 
 expect([srcAccount.withdraw, destAccount.deposit],
-       'to have calls satisfying', [
-  { spy: srcAccount.withdraw, args: [ { amount: 250, currency: 'dkk' } ]},
-  { spy: destAccount.deposit, args: [ { amount: 250, currency: 'dkk' }  ] }
-]);
+       'to have calls satisfying', function () {
+  srcAccount.withdraw({ amount: 250, currency: 'dkk' })
+  destAccount.deposit({ amount: 250, currency: 'dkk' })
+});
 ```
 
 ---
 
 ```output
 expected [ withdraw, deposit ] to have calls satisfying
-[
-  { spy: withdraw, args: [ { amount: 250, currency: 'dkk' } ] },
-  { spy: deposit, args: [ { amount: 250, currency: 'dkk' } ] }
-]
+withdraw( { amount: 250, currency: 'dkk' } );
+deposit( { amount: 250, currency: 'dkk' } );
 
 [
   withdraw(
