@@ -1,0 +1,22 @@
+{
+  "name": "expect-the-unexpected",
+  "version": "1.0.0",
+  "description": "A presentation about unexpected.js.org",
+  "author": "Sune Simonsen",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run build && serve build",
+    "build": "unexpected-presentation presentation.md",
+    "publish": "npm run build && gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "0.12.0",
+    "moment": "2.16.0",
+    "serve": "1.4.0",
+    "sinon": "1.17.6",
+    "unexpected": "10.20.0",
+    "unexpected-presentation": "1.2.1",
+    "unexpected-sinon": "10.5.0"
+  }
+}
