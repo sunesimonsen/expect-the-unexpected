@@ -16,7 +16,7 @@
     "serve": "1.4.0",
     "sinon": "1.17.6",
     "unexpected": "10.20.0",
-    "unexpected-presentation": "2.2.0",
+    "unexpected-presentation": "2.4.0",
     "unexpected-sinon": "10.5.0"
   }
 }
